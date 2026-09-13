@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бриф на проект</title>
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --bg-soft:#FAFAFA;
+    --accent:#0A84FF;
+    --accent-soft:rgba(10,132,255,0.08);
+    --text:#1D1D1F;
+    --text-secondary:#6E6E73;
+    --border:#E5E5EA;
+    --danger:#FF3B30;
+    --radius-card:22px;
+    --radius-field:13px;
+    --shadow-soft:0 4px 20px rgba(0,0,0,0.06);
+    --shadow-lift:0 8px 30px rgba(0,0,0,0.09);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg-soft);
+    color:var(--text);
+    font-family:-apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+
+  .wrap{
+    max-width:720px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- Hero / choice screen ---------- */
+  .hero{
+    padding:96px 24px 72px;
+    text-align:center;
+  }
+  .hero h1{
+    font-size:40px;
+    font-weight:600;
+    letter-spacing:-0.02em;
+    margin:0 0 16px;
+  }
+  .hero p{
+    font-size:18px;
+    color:var(--text-secondary);
+    margin:0 0 56px;
+    max-width:520px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .choice-grid{
+    max-width:720px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+
+  .choice-card{
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:var(--radius-card);
+    padding:40px 28px;
+    text-align:left;
+    cursor:pointer;
+    box-shadow:var(--shadow-soft);
+    transition:transform 240ms ease-out, box-shadow 240ms ease-out, border-color 240ms ease-out;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .choice-card:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow-lift);
+  }
+  .choice-card.selected{
+    border-color:var(--accent);
+    box-shadow:0 0 0 2px var(--accent), var(--shadow-lift);
+  }
+  .choice-card .tag{
+    display:inline-block;
+    font-size:13px;
+    font-weight:600;
+    color:var(--accent);
+    background:var(--accent-soft);
+    padding:4px 12px;
+    border-radius:20px;
+    margin-bottom:18px;
+  }
+  .choice-card h3{
+    font-size:22px;
+    font-weight:600;
+    margin:0 0 10px;
+    letter-spacing:-0.01em;
+  }
+  .choice-card p{
+    font-size:15px;
+    color:var(--text-secondary);
+    margin:0;
+  }
+
+  @media (max-width:640px){
+    .choice-grid{grid-template-columns:1fr;}
+    .hero{padding:64px 20px 48px;}
+    .hero h1{font-size:30px;}
+    .hero p{font-size:16px;margin-bottom:40px;}
+  }
+
+  /* ---------- Brief form ---------- */
+  #briefForm{
+    opacity:0;
+    transform:translateY(16px);
+    transition:opacity 320ms ease-out, transform 320ms ease-out;
+  }
+  #briefForm.visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  .progress-shell{
+    position:sticky;
+    top:0;
+    background:rgba(250,250,250,0.85);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    padding:16px 24px;
+    z-index:10;
+    border-bottom:1px solid var(--border);
+  }
+  .progress-track{
+    max-width:720px;
+    margin:0 auto;
+    height:4px;
+    background:var(--border);
+    border-radius:4px;
+    overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;
+    width:0%;
+    background:var(--accent);
+    border-radius:4px;
+    transition:width 240ms ease-out;
+  }
+
+  .section{
+    padding:56px 24px;
+    border-bottom:1px solid var(--border);
+  }
+  .section:last-of-type{
+    border-bottom:none;
+  }
+  .section-inner{
+    max-width:640px;
+    margin:0 auto;
+  }
+  .section-title{
+    font-size:26px;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0 0 8px;
+  }
+  .section-subtitle{
+    font-size:15px;
+    color:var(--text-secondary);
+    margin:0 0 36px;
+  }
+
+  .field{
+    margin-bottom:28px;
+  }
+  .field label.q{
+    display:block;
+    font-size:16px;
+    font-weight:500;
+    margin-bottom:10px;
+  }
+  .field label.q .req{
+    color:var(--accent);
+    margin-left:4px;
+  }
+  .field .hint{
+    font-size:13px;
+    color:var(--text-secondary);
+    margin-top:8px;
+  }
+
+  input[type="text"],
+  input[type="url"],
+  textarea,
+  select{
+    width:100%;
+    font-size:16px;
+    font-family:inherit;
+    color:var(--text);
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:var(--radius-field);
+    padding:14px 16px;
+    outline:none;
+    transition:border-color 200ms ease-out, box-shadow 200ms ease-out;
+    min-height:44px;
+  }
+  textarea{
+    resize:vertical;
+    min-height:96px;
+  }
+  input:focus,
+  textarea:focus,
+  select:focus{
+    border-color:var(--accent);
+    box-shadow:0 0 0 3px var(--accent-soft);
+  }
+  input.field-error,
+  textarea.field-error,
+  select.field-error{
+    border-color:var(--danger);
+    animation:shake 220ms ease-out;
+  }
+  @keyframes shake{
+    0%,100%{transform:translateX(0);}
+    30%{transform:translateX(-4px);}
+    60%{transform:translateX(4px);}
+  }
+
+  select{
+    -webkit-appearance:none;
+    appearance:none;
+    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9"><path d="M1 1l6 6 6-6" stroke="%236E6E73" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    background-repeat:no-repeat;
+    background-position:right 16px center;
+    padding-right:40px;
+  }
+
+  .choice-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .pill-option{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:12px 16px;
+    cursor:pointer;
+    font-size:15px;
+    transition:border-color 200ms ease-out, background 200ms ease-out;
+    min-height:44px;
+    flex:1 1 auto;
+  }
+  .pill-option:hover{
+    border-color:#C7C7CC;
+  }
+  .pill-option input{
+    width:auto;
+    min-height:auto;
+    accent-color:var(--accent);
+  }
+  .pill-option.checked{
+    border-color:var(--accent);
+    background:var(--accent-soft);
+  }
+
+  .radio-group{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .sub-input{
+    margin-top:10px;
+    display:none;
+  }
+  .sub-input.visible{
+    display:block;
+  }
+
+  /* ---------- Submit section ---------- */
+  .submit-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    background:var(--accent);
+    color:#fff;
+    border:none;
+    border-radius:14px;
+    font-size:17px;
+    font-weight:600;
+    padding:16px 24px;
+    min-height:52px;
+    cursor:pointer;
+    transition:transform 200ms ease-out, box-shadow 200ms ease-out, background 200ms ease-out;
+  }
+  .submit-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:var(--shadow-lift);
+  }
+  .submit-btn:active{
+    transform:translateY(0);
+  }
+  .submit-btn:disabled{
+    opacity:0.6;
+    cursor:default;
+    transform:none;
+  }
+
+  .spinner{
+    width:18px;
+    height:18px;
+    border:2px solid rgba(255,255,255,0.4);
+    border-top-color:#fff;
+    border-radius:50%;
+    animation:spin 700ms linear infinite;
+    display:none;
+  }
+  .spinner.visible{display:inline-block;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  .submit-error{
+    color:var(--danger);
+    font-size:14px;
+    margin-top:14px;
+    text-align:center;
+    display:none;
+  }
+  .submit-error.visible{display:block;}
+
+  .honeypot{
+    position:absolute;
+    left:-9999px;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+  }
+
+  /* ---------- Success screen ---------- */
+  #successScreen{
+    display:none;
+    padding:120px 24px;
+    text-align:center;
+    opacity:0;
+    transform:translateY(16px);
+    transition:opacity 320ms ease-out, transform 320ms ease-out;
+  }
+  #successScreen.visible{
+    display:block;
+    opacity:1;
+    transform:translateY(0);
+  }
+  .success-icon{
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    background:var(--accent-soft);
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 28px;
+    font-size:28px;
+  }
+  #successScreen h2{
+    font-size:28px;
+    font-weight:600;
+    margin:0 0 12px;
+  }
+  #successScreen p{
+    color:var(--text-secondary);
+    font-size:16px;
+    max-width:420px;
+    margin:0 auto;
+  }
+
+  @media (max-width:640px){
+    .section{padding:40px 20px;}
+    .section-title{font-size:22px;}
+    .choice-row{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero" id="heroChoice">
+  <div class="wrap">
+    <h1>Бриф на проект</h1>
+    <p>15 вопросов — и мы точно понимаем, что нужно сделать. Выберите формат сотрудничества, чтобы начать.</p>
+  </div>
+  <div class="choice-grid">
+    <div class="choice-card" data-branch="figma" id="cardFigma">
+      <span class="tag">Дизайн</span>
+      <h3>Только дизайн в Figma</h3>
+      <p>Разработку берёт на себя ваша команда или подрядчик — я передаю готовые макеты.</p>
+    </div>
+    <div class="choice-card" data-branch="figma_tilda" id="cardTilda">
+      <span class="tag">Дизайн + разработка</span>
+      <h3>Дизайн + разработка на Tilda</h3>
+      <p>Делаю макет и сразу собираю рабочий сайт на Tilda — под ключ.</p>
+    </div>
+  </div>
+</div>
+
+<form id="briefForm" novalidate>
+
+  <div class="progress-shell">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
+  <!-- Honeypot -->
+  <div class="honeypot" aria-hidden="true">
+    <label for="website">Website</label>
+    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+  </div>
+
+  <div class="section">
+    <div class="section-inner">
+      <h2 class="section-title">Контакты</h2>
+      <p class="section-subtitle">Чтобы я могла с вами связаться.</p>
+
+      <div class="field">
+        <label class="q" for="f_name">Имя<span class="req">*</span></label>
+        <input type="text" id="f_name" data-required="true">
+      </div>
+      <div class="field">
+        <label class="q" for="f_company">Компания / проект<span class="req">*</span></label>
+        <input type="text" id="f_company" data-required="true">
+      </div>
+      <div class="field">
+        <label class="q" for="f_contact">Email или Telegram для связи<span class="req">*</span></label>
+        <input type="text" id="f_contact" data-required="true">
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-inner">
+      <h2 class="section-title">О проекте</h2>
+      <p class="section-subtitle">10 общих вопросов — помогут понять контекст.</p>
+
+      <div class="field">
+        <label class="q" for="q1">Ссылка на текущий сайт (если есть)</label>
+        <input type="url" id="q1" placeholder="https://">
+      </div>
+
+      <div class="field">
+        <label class="q" for="q2">Чем занимается компания / что за продукт?<span class="req">*</span></label>
+        <textarea id="q2" data-required="true" placeholder="2–3 предложения"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="q" for="q3">Главная цель нового сайта<span class="req">*</span></label>
+        <select id="q3" data-required="true">
+          <option value="">Выберите вариант</option>
+          <option value="Больше заявок">Больше заявок</option>
+          <option value="Продажи онлайн">Продажи онлайн</option>
+          <option value="Имидж и доверие">Имидж и доверие</option>
+          <option value="Другое">Другое</option>
+        </select>
+        <input type="text" id="q3_other" class="sub-input" placeholder="Уточните">
+      </div>
+
+      <div class="field">
+        <label class="q" for="q4">Кто целевая аудитория сайта?<span class="req">*</span></label>
+        <textarea id="q4" data-required="true"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="q" for="q5">3 сайта-референса, которые нравятся (ссылки)</label>
+        <textarea id="q5" placeholder="Ссылки, каждая с новой строки"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="q">Что есть из готового: логотип, брендбук, тексты, фото</label>
+        <div class="choice-row">
+          <label class="pill-option"><input type="checkbox" value="Логотип" data-group="q6"><span>Логотип</span></label>
+          <label class="pill-option"><input type="checkbox" value="Брендбук" data-group="q6"><span>Брендбук</span></label>
+          <label class="pill-option"><input type="checkbox" value="Тексты" data-group="q6"><span>Тексты</span></label>
+          <label class="pill-option"><input type="checkbox" value="Фото" data-group="q6"><span>Фото</span></label>
+        </div>
+        <input type="text" id="q6_comment" class="hint-input" placeholder="Комментарий (необязательно)" style="margin-top:12px;">
+      </div>
+
+      <div class="field">
+        <label class="q" for="q7">Есть ли сайты конкурентов, которые стоит учесть?</label>
+        <textarea id="q7"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="q" for="q8">Сайт как «визитка» (статичный) или как рабочий инструмент, который вы сами будете наполнять контентом?<span class="req">*</span></label>
+        <textarea id="q8" data-required="true"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="q">Одностраничный или многостраничный сайт?</label>
+        <div class="radio-group">
+          <label class="pill-option"><input type="radio" name="q9" value="Одна страница"><span>Одна страница</span></label>
+          <label class="pill-option"><input type="radio" name="q9" value="Несколько страниц" id="q9_multi"><span>Несколько страниц</span></label>
+        </div>
+        <input type="text" id="q9_count" class="sub-input" placeholder="Сколько примерно страниц?">
+      </div>
+
+      <div class="field">
+        <label class="q">Есть ли у вас структура сайта? Текст, фото, материалы — или всё отдаётся дизайнеру?</label>
+        <div class="radio-group">
+          <label class="pill-option"><input type="radio" name="q10" value="Есть, отправлю"><span>Есть, отправлю</span></label>
+          <label class="pill-option"><input type="radio" name="q10" value="Материалов нет"><span>Материалов нет</span></label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section" id="branchFigma" style="display:none;">
+    <div class="section-inner">
+      <h2 class="section-title">Про разработку</h2>
+      <p class="section-subtitle">5 вопросов о том, как макеты будут превращаться в сайт.</p>
+
+      <div class="field">
+        <label class="q">Кто будет верстать сайт по макетам?</label>
+        <select id="qf11">
+          <option value="">Выберите вариант</option>
+          <option value="Своя команда разработки">Своя команда разработки</option>
+          <option value="Подрядчик/агентство">Подрядчик/агентство</option>
+          <option value="Ещё не решили">Ещё не решили</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="q" for="qf12">На какой платформе/CMS будет сайт?</label>
+        <input type="text" id="qf12" placeholder="WordPress, Webflow, кастомная разработка и т.д.">
+      </div>
+
+      <div class="field">
+        <label class="q" for="qf13">Команда использует готовую библиотеку компонентов (Tailwind, MUI, Ant Design и т.п.) или пишет вёрстку с нуля?</label>
+        <input type="text" id="qf13" placeholder="Если знаете — напишите название; если нет — «не знаю»">
+      </div>
+
+      <div class="field">
+        <label class="q">Будет ли у дизайнера возможность провести дизайн-ревью после реализации вёрстки? Входит в стоимость</label>
+        <div class="radio-group">
+          <label class="pill-option"><input type="radio" name="qf14" value="Да"><span>Да</span></label>
+          <label class="pill-option"><input type="radio" name="qf14" value="Не нужно"><span>Не нужно</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="q">Есть ли у разработчиков готовое техническое задание по функциональности сайта?</label>
+        <div class="radio-group">
+          <label class="pill-option"><input type="radio" name="qf15" value="Да, есть ТЗ"><span>Да, есть ТЗ</span></label>
+          <label class="pill-option"><input type="radio" name="qf15" value="Нет, ориентируемся по ходу"><span>Нет, ориентируемся по ходу</span></label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section" id="branchTilda" style="display:none;">
+    <div class="section-inner">
+      <h2 class="section-title">Про Tilda</h2>
+      <p class="section-subtitle">4 вопроса о запуске и сопровождении сайта.</p>
+
+      <div class="field">
+        <label class="q">Есть ли уже домен и аккаунт/тариф Tilda?</label>
+        <div class="radio-group">
+          <label class="pill-option"><input type="radio" name="qt11" value="Есть всё"><span>Есть всё</span></label>
+          <label class="pill-option"><input type="radio" name="qt11" value="Есть домен, нужен Tilda"><span>Есть домен, нужен Tilda</span></label>
+          <label class="pill-option"><input type="radio" name="qt11" value="Нет ничего"><span>Нет ничего</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="q">Нужны ли интеграции: рассылки, онлайн-оплата, чаты?</label>
+        <div class="choice-row">
+          <label class="pill-option"><input type="checkbox" value="Рассылки" data-group="qt12"><span>Рассылки</span></label>
+          <label class="pill-option"><input type="checkbox" value="Онлайн-оплата" data-group="qt12"><span>Онлайн-оплата</span></label>
+          <label class="pill-option"><input type="checkbox" value="Чаты" data-group="qt12"><span>Чаты</span></label>
+        </div>
+        <input type="text" id="qt12_other" class="hint-input" placeholder="Другое (необязательно)" style="margin-top:12px;">
+      </div>
+
+      <div class="field">
+        <label class="q" for="qt13">Нужна форма заявки на сайте? Куда должны приходить заявки?</label>
+        <input type="text" id="qt13" placeholder="Например: на почту (указать), в Telegram, в CRM">
+      </div>
+
+      <div class="field">
+        <label class="q" for="qt14">Нужна ли поддержка сайта после запуска и кто будет вносить правки — вы сами или нужен подрядчик?</label>
+        <textarea id="qt14"></textarea>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-inner">
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <span class="spinner" id="submitSpinner"></span>
+        <span id="submitLabel">Отправить бриф</span>
+      </button>
+      <div class="submit-error" id="submitError">Не получилось отправить. Проверьте связь с интернетом и попробуйте ещё раз.</div>
+    </div>
+  </div>
+
+</form>
+
+<div id="successScreen">
+  <div class="success-icon">✓</div>
+  <h2>Спасибо! Бриф отправлен</h2>
+  <p>Я получила ваши ответы и скоро напишу вам, чтобы обсудить проект.</p>
+</div>
+
+<!--
+  Отправка письма через EmailJS (https://www.emailjs.com):
+  1. Зарегистрируйте аккаунт на emailjs.com, привязанный к elizaemg@icloud.com.
+  2. Создайте Email Service и Email Template с переменными
+     {{name}}, {{contact}}, {{branch}}, {{answers}}.
+  3. Вставьте свои SERVICE_ID / TEMPLATE_ID / PUBLIC_KEY ниже вместо плейсхолдеров.
+-->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+(function(){
+  var EMAILJS_PUBLIC_KEY = "v4KRwqNdSFkMGiP8D";
+  var EMAILJS_SERVICE_ID = "service_k4sq0lk";
+  var EMAILJS_TEMPLATE_ID = "template_0unagus";
+
+  if (window.emailjs && EMAILJS_PUBLIC_KEY.indexOf("YOUR_") !== 0) {
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }
+
+  var formState = { branch: null };
+
+  var heroChoice = document.getElementById('heroChoice');
+  var briefForm = document.getElementById('briefForm');
+  var cardFigma = document.getElementById('cardFigma');
+  var cardTilda = document.getElementById('cardTilda');
+  var branchFigma = document.getElementById('branchFigma');
+  var branchTilda = document.getElementById('branchTilda');
+
+  function selectBranch(branch){
+    formState.branch = branch;
+    cardFigma.classList.toggle('selected', branch === 'figma');
+    cardTilda.classList.toggle('selected', branch === 'figma_tilda');
+    branchFigma.style.display = branch === 'figma' ? 'block' : 'none';
+    branchTilda.style.display = branch === 'figma_tilda' ? 'block' : 'none';
+
+    if (!briefForm.classList.contains('visible')) {
+      briefForm.classList.add('visible');
+      requestAnimationFrame(function(){
+        briefForm.scrollIntoView({ behavior:'smooth', block:'start' });
+      });
+    }
+    updateProgress();
+  }
+
+  cardFigma.addEventListener('click', function(){ selectBranch('figma'); });
+  cardTilda.addEventListener('click', function(){ selectBranch('figma_tilda'); });
+
+  // Conditional sub-fields
+  var q3 = document.getElementById('q3');
+  var q3Other = document.getElementById('q3_other');
+  q3.addEventListener('change', function(){
+    q3Other.classList.toggle('visible', q3.value === 'Другое');
+    updateProgress();
+  });
+
+  var q9Multi = document.getElementById('q9_multi');
+  var q9Count = document.getElementById('q9_count');
+  document.getElementsByName('q9').forEach(function(radio){
+    radio.addEventListener('change', function(){
+      q9Count.classList.toggle('visible', q9Multi.checked);
+    });
+  });
+
+  // Pill checked-state styling for checkboxes/radios
+  document.querySelectorAll('.pill-option input').forEach(function(input){
+    input.addEventListener('change', function(){
+      if (input.type === 'radio') {
+        document.getElementsByName(input.name).forEach(function(sibling){
+          sibling.closest('.pill-option').classList.toggle('checked', sibling.checked);
+        });
+      } else {
+        input.closest('.pill-option').classList.toggle('checked', input.checked);
+      }
+      updateProgress();
+    });
+  });
+
+  // ---- Progress bar ----
+  var requiredFields = ['f_name','f_company','f_contact','q2','q4','q8'];
+
+  function isQ3Filled(){
+    if (!q3.value) return false;
+    if (q3.value === 'Другое') return q3Other.value.trim() !== '';
+    return true;
+  }
+
+  function updateProgress(){
+    var total = requiredFields.length + 1; // +1 for q3
+    var filled = 0;
+    requiredFields.forEach(function(id){
+      var el = document.getElementById(id);
+      if (el && el.value.trim() !== '') filled++;
+    });
+    if (isQ3Filled()) filled++;
+    var pct = Math.round((filled / total) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+  }
+
+  requiredFields.forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('input', updateProgress);
+  });
+
+  updateProgress();
+
+  // ---- Validation + submit ----
+  var form = document.getElementById('briefForm');
+  var submitBtn = document.getElementById('submitBtn');
+  var submitSpinner = document.getElementById('submitSpinner');
+  var submitLabel = document.getElementById('submitLabel');
+  var submitError = document.getElementById('submitError');
+
+  function clearFieldError(el){
+    el.classList.remove('field-error');
+  }
+
+  function validate(){
+    var invalid = [];
+    requiredFields.forEach(function(id){
+      var el = document.getElementById(id);
+      if (!el.value.trim()) invalid.push(el);
+      else clearFieldError(el);
+    });
+    if (!isQ3Filled()) {
+      invalid.push(q3.value === 'Другое' ? q3Other : q3);
+    } else {
+      clearFieldError(q3);
+      clearFieldError(q3Other);
+    }
+    return invalid;
+  }
+
+  function collectAnswers(){
+    var lines = [];
+    lines.push('Имя: ' + document.getElementById('f_name').value.trim());
+    lines.push('Компания/проект: ' + document.getElementById('f_company').value.trim());
+    lines.push('Контакт: ' + document.getElementById('f_contact').value.trim());
+    lines.push('');
+    lines.push('Формат: ' + (formState.branch === 'figma' ? 'Только дизайн в Figma' : 'Дизайн + разработка на Tilda'));
+    lines.push('');
+
+    function add(label, value){
+      if (value === null || value === undefined) return;
+      value = String(value).trim();
+      if (value === '') return;
+      lines.push(label + ': ' + value);
+    }
+
+    add('1. Ссылка на текущий сайт', document.getElementById('q1').value);
+    add('2. Чем занимается компания', document.getElementById('q2').value);
+    var q3val = q3.value === 'Другое' ? ('Другое — ' + q3Other.value) : q3.value;
+    add('3. Главная цель сайта', q3val);
+    add('4. Целевая аудитория', document.getElementById('q4').value);
+    add('5. Референсы', document.getElementById('q5').value);
+
+    var q6 = Array.prototype.slice.call(document.querySelectorAll('[data-group="q6"]:checked')).map(function(c){return c.value;}).join(', ');
+    var q6comment = document.getElementById('q6_comment').value.trim();
+    add('6. Что есть готового', q6 + (q6comment ? ' (' + q6comment + ')' : ''));
+
+    add('7. Конкуренты', document.getElementById('q7').value);
+    add('8. Визитка или рабочий инструмент', document.getElementById('q8').value);
+
+    var q9checked = document.querySelector('input[name="q9"]:checked');
+    var q9val = q9checked ? q9checked.value : '';
+    if (q9val === 'Несколько страниц' && q9Count.value.trim()) q9val += ' (' + q9Count.value.trim() + ')';
+    add('9. Одна страница или несколько', q9val);
+
+    var q10checked = document.querySelector('input[name="q10"]:checked');
+    add('10. Есть структура сайта', q10checked ? q10checked.value : '');
+
+    if (formState.branch === 'figma') {
+      add('11. Кто будет верстать', document.getElementById('qf11').value);
+      add('12. Платформа/CMS', document.getElementById('qf12').value);
+      add('13. Библиотека компонентов', document.getElementById('qf13').value);
+      var qf14 = document.querySelector('input[name="qf14"]:checked');
+      add('14. Дизайн-ревью после вёрстки', qf14 ? qf14.value : '');
+      var qf15 = document.querySelector('input[name="qf15"]:checked');
+      add('15. Готовое ТЗ по функциональности', qf15 ? qf15.value : '');
+    } else if (formState.branch === 'figma_tilda') {
+      var qt11 = document.querySelector('input[name="qt11"]:checked');
+      add('11. Домен и аккаунт Tilda', qt11 ? qt11.value : '');
+      var qt12 = Array.prototype.slice.call(document.querySelectorAll('[data-group="qt12"]:checked')).map(function(c){return c.value;}).join(', ');
+      var qt12other = document.getElementById('qt12_other').value.trim();
+      add('12. Нужные интеграции', qt12 + (qt12other ? ', ' + qt12other : ''));
+      add('13. Форма заявки', document.getElementById('qt13').value);
+      add('14. Поддержка после запуска', document.getElementById('qt14').value);
+    }
+
+    return lines.join('\n');
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    submitError.classList.remove('visible');
+
+    if (!formState.branch) {
+      heroChoice.scrollIntoView({ behavior:'smooth', block:'start' });
+      return;
+    }
+
+    // Honeypot check
+    var honeypot = document.getElementById('website');
+    if (honeypot.value.trim() !== '') {
+      return; // silently drop, likely a bot
+    }
+
+    var invalid = validate();
+    if (invalid.length) {
+      invalid.forEach(function(el){ el.classList.add('field-error'); });
+      invalid[0].scrollIntoView({ behavior:'smooth', block:'center' });
+      invalid[0].focus({ preventScroll:true });
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitSpinner.classList.add('visible');
+    submitLabel.textContent = 'Отправляем…';
+
+    var payload = {
+      name: document.getElementById('f_name').value.trim(),
+      contact: document.getElementById('f_contact').value.trim(),
+      branch: formState.branch === 'figma' ? 'Только дизайн в Figma' : 'Дизайн + разработка на Tilda',
+      answers: collectAnswers()
+    };
+
+    function onDone(){
+      briefForm.style.display = 'none';
+      var success = document.getElementById('successScreen');
+      success.classList.add('visible');
+      requestAnimationFrame(function(){
+        success.scrollIntoView({ behavior:'smooth', block:'start' });
+      });
+    }
+
+    function onFail(){
+      submitBtn.disabled = false;
+      submitSpinner.classList.remove('visible');
+      submitLabel.textContent = 'Отправить бриф';
+      submitError.classList.add('visible');
+    }
+
+    if (window.emailjs && EMAILJS_PUBLIC_KEY.indexOf("YOUR_") !== 0) {
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, payload).then(onDone, onFail);
+    } else {
+      // EmailJS не настроен: показываем ошибку, чтобы бриф не выглядел отправленным.
+      console.warn('EmailJS не настроен. Заполните SERVICE_ID/TEMPLATE_ID/PUBLIC_KEY в brief/index.html.');
+      onFail();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
