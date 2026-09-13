@@ -130,9 +130,9 @@
       },
       ru: {
         "meta.title": "Eliza EGM — продуктовый дизайнер",
-        "meta.description": "Я создаю спокойные интерфейсы для продуктов, которые спокойными не назовёшь. Продуктовый дизайн, дизайн-системы и 3D-работы от Элизабет EGM.",
+        "meta.description": "Я создаю спокойные интерфейсы для продуктов, которые спокойными не назовёшь. Продуктовый дизайн, дизайн-системы и 3D-работы от Елизаветы EGM.",
 
-        "hero.greeting": "Привет, я Элизабет 🤓 Продуктовый и 3D-дизайнер из Москвы",
+        "hero.greeting": "Привет, я Елизавета 🤓 Продуктовый и 3D-дизайнер из Москвы",
         "hero.heading": "Я создаю спокойные интерфейсы для продуктов, которые спокойными не назовёшь",
         "hero.tag.uxui": "UX / UI",
         "hero.tag.designSystems": "Дизайн-системы",
@@ -141,7 +141,7 @@
         "hero.tag.dataHeavyUi": "Дата-интерфейсы",
         "hero.tag.3d": "3D",
         "hero.status": "Открыта для работы",
-        "hero.statusLink": "Обсудим",
+        "hero.statusLink": "Обсудить",
 
         "approach.heading": "Подход",
         "approach.intro": "Я стремлюсь к балансу между классическим мастерством и современным дизайном — не гонюсь за трендами, а сочетаю понятную, интуитивную структуру с визуалом, который цепляет.",
@@ -468,6 +468,13 @@
       if (Object.prototype.hasOwnProperty.call(dict, key)) {
         el.innerHTML = dict[key];
       }
+    });
+
+    document.querySelectorAll("[data-i18n-hide]").forEach(function (el) {
+      var hideForLangs = el.getAttribute("data-i18n-hide").split(",").map(function (s) {
+        return s.trim();
+      });
+      el.hidden = hideForLangs.indexOf(lang) !== -1;
     });
 
     saveLang(lang);
