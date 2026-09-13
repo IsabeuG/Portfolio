@@ -2,6 +2,44 @@
   "use strict";
 
   /* ---------------------------------------------------------
+     Rotating hero word (home page only)
+  --------------------------------------------------------- */
+  var ROTATE_WORDS = {
+    en: ["calm", "simple", "clear", "intuitive"],
+    ru: ["непростых", "хаотичных", "требовательных", "масштабных"]
+  };
+  var rotateTimer = null;
+
+  function stopWordRotation() {
+    if (rotateTimer) {
+      clearInterval(rotateTimer);
+      rotateTimer = null;
+    }
+  }
+
+  function startWordRotation(lang) {
+    stopWordRotation();
+    var el = document.querySelector("[data-rotate-word]");
+    if (!el) return;
+
+    var words = ROTATE_WORDS[lang] || ROTATE_WORDS.en;
+    var index = 0;
+    el.textContent = words[index];
+
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
+    rotateTimer = setInterval(function () {
+      index = (index + 1) % words.length;
+      el.classList.add("is-swapping");
+      setTimeout(function () {
+        el.textContent = words[index];
+        el.classList.remove("is-swapping");
+      }, 280);
+    }, 2600);
+  }
+
+  /* ---------------------------------------------------------
      Shared strings (nav + case-study boilerplate)
   --------------------------------------------------------- */
   var SHARED = {
@@ -60,7 +98,8 @@
         "meta.description": "I design calm interfaces for products that are anything but. Product design, design systems and 3D work by Elizabeth EGM.",
 
         "hero.greeting": "Hi, I'm Elizabeth 🤓 Product and 3D Designer based in Moscow",
-        "hero.heading": "I design calm interfaces for products that are anything but",
+        "hero.heading.prefix": "I design ",
+        "hero.heading.suffix": " interfaces for products that are anything but",
         "hero.tag.uxui": "UX / UI",
         "hero.tag.designSystems": "Design systems",
         "hero.tag.b2b": "B2B",
@@ -133,7 +172,8 @@
         "meta.description": "Интуитивные интерфейсы для непростых продуктов. Продуктовый дизайн, дизайн-системы и 3D-работы от Елизаветы EGM.",
 
         "hero.greeting": "Привет, я Елизавета 🤓 Продуктовый и 3D-дизайнер из Москвы",
-        "hero.heading": "Я создаю интуитивные интерфейсы для непростых продуктов",
+        "hero.heading.prefix": "Я создаю интуитивные интерфейсы для ",
+        "hero.heading.suffix": " продуктов",
         "hero.tag.uxui": "UX / UI",
         "hero.tag.designSystems": "Дизайн-системы",
         "hero.tag.b2b": "B2B",
@@ -477,6 +517,7 @@
       el.hidden = hideForLangs.indexOf(lang) !== -1;
     });
 
+    startWordRotation(lang);
     saveLang(lang);
     updateSwitcherUI(lang);
   }

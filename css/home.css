@@ -49,6 +49,23 @@
   color: var(--color-text-strong);
 }
 
+.hero__rotate-word {
+  display: inline-block;
+  transition: opacity 0.28s ease, transform 0.28s ease, filter 0.28s ease;
+}
+
+.hero__rotate-word.is-swapping {
+  opacity: 0;
+  transform: translateY(0.18em);
+  filter: blur(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__rotate-word {
+    transition: none;
+  }
+}
+
 .hero__tags {
   display: flex;
   flex-wrap: wrap;
