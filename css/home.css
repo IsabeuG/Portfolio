@@ -183,6 +183,13 @@
   .hero__card {
     padding: 24px;
   }
+  .hero__greeting {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .hero__heading {
+    font-size: 24px;
+  }
 }
 
 /* ---------------------------------------------------------
