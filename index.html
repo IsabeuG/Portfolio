@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eliza EGM — Product Designer</title>
+  <meta name="description" content="I design calm interfaces for products that are anything but. Product design, design systems and 3D work by Elizabeth EGM." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__brand" href="#hero">EGM</a>
+      <a class="nav__link" href="#approach">Approach</a>
+      <a class="nav__link" href="#work">Work</a>
+      <a class="nav__link" href="#contact">Contacts</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero__grid">
+        <div class="hero__card">
+          <div class="hero__intro">
+            <p class="hero__greeting">Hi, I'm Elizabeth 🤓</p>
+            <h1 class="hero__heading">I design calm interfaces for products that are anything but</h1>
+          </div>
+          <ul class="hero__tags">
+            <li class="pill">UX / UI</li>
+            <li class="pill">Design systems</li>
+            <li class="pill">B2B</li>
+            <li class="pill">B2С</li>
+            <li class="pill">Data-heavy UI</li>
+            <li class="pill">3D</li>
+          </ul>
+        </div>
+        <div class="hero__aside">
+          <div class="hero__portrait">
+            <img src="assets/images/hero-portrait.jpg" alt="Portrait of Eliza EGM" />
+          </div>
+          <div class="hero__status">
+            <span class="hero__status-dot" aria-hidden="true"></span>
+            <span class="hero__status-text">Available for work</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Approach -->
+    <section class="section" id="approach">
+      <div class="container">
+        <h2 class="section-heading">Approach</h2>
+        <div class="approach__grid">
+          <div class="approach__intro">
+            I aim for balance between classical craft and contemporary design — not chasing trends, but pairing clear, intuitive structure with visuals that pull you in.
+          </div>
+          <div class="approach__notes">
+            <p>I start with the workflow, not the screens. Understanding how people actually move through a product — the shortcuts they've invented, the steps they skip, the errors they ignore — tells me more than any brief.</p>
+            <p>Systems over one-off screens. Every component I design has to work in at least three states and survive an engineer who's never spoken to me. If it can't be handed off without a Loom video, it isn't finished.</p>
+            <p>Delivery is part of the design. Annotated specs, motion guidance, edge case documentation: these aren't extras, they're the last 30% of the job. The gap between a good design and a good product usually lives in that 30%.</p>
+          </div>
+        </div>
+        <div class="approach__skills">
+          <span class="pill pill--accent">Product discovery</span>
+          <span class="pill pill--accent">Complex workflows</span>
+          <span class="pill pill--accent">Design systems</span>
+          <span class="pill pill--accent">Data-heavy UI</span>
+          <span class="pill pill--outline">Prototyping</span>
+          <span class="pill pill--accent">Interaction design</span>
+          <span class="pill pill--outline">User research</span>
+          <span class="pill pill--outline">3D &amp; product visuals</span>
+          <span class="pill pill--outline">Motion</span>
+          <span class="pill pill--accent">Figma</span>
+          <span class="pill pill--outline">Blender</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work / Featured projects -->
+    <section class="section" id="work">
+      <div class="container">
+        <div class="projects__head">
+          <div>
+            <h2 class="section-heading">Featured projects</h2>
+            <p class="section-subhead">Selected cases from the last two years.</p>
+          </div>
+        </div>
+        <div class="projects__tabs" role="tablist" aria-label="Project category">
+          <button class="projects__tab is-active" type="button" role="tab" aria-selected="true" data-tab="design">Product Design</button>
+          <button class="projects__tab" type="button" role="tab" aria-selected="false" data-tab="3d">3D Art</button>
+        </div>
+
+        <div class="projects__grid" data-panel="design">
+          <a class="project-card" href="case-studies/tessera.html">
+            <div class="project-card__media">
+              <img src="assets/images/project-tessera.jpg" alt="Tessera fleet management platform shown on a laptop" loading="lazy" />
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span class="project-card__tag">FinTech</span>
+                <span class="project-card__tag">Crypto</span>
+                <span class="project-card__tag">Corporate Website</span>
+              </div>
+              <h3 class="project-card__title">Tessera — Fleet management platform</h3>
+              <p class="project-card__desc">An invisible product with no UI to show, sold to buyers who arrive skeptical rather than curious. Adjectives do not survive that room.</p>
+              <div class="project-card__footer">
+                <span class="link-arrow">View case <span class="link-arrow__arrow">→</span></span>
+              </div>
+            </div>
+          </a>
+
+          <a class="project-card" href="case-studies/liveops.html">
+            <div class="project-card__media">
+              <img src="assets/images/project-liveops-bg.jpg" alt="LiveOps command center dashboard" loading="lazy" />
+              <img src="assets/images/project-liveops-overlay.png" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;" />
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span class="project-card__tag">Internal SaaS</span>
+                <span class="project-card__tag">Live game operations</span>
+                <span class="project-card__tag">Web app</span>
+              </div>
+              <h3 class="project-card__title">LiveOps — Command center</h3>
+              <p class="project-card__desc">A real-time control room for a live game with millions of players. One dark interface to watch the pulse, balance the economy, and run experiments.</p>
+              <div class="project-card__footer">
+                <span class="link-arrow">View case <span class="link-arrow__arrow">→</span></span>
+              </div>
+            </div>
+          </a>
+
+          <a class="project-card" href="case-studies/aperture.html">
+            <div class="project-card__media">
+              <img src="assets/images/project-aperture.jpg" alt="Aperture satellite ground-network API landing page" loading="lazy" />
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span class="project-card__tag">Landing</span>
+                <span class="project-card__tag">Satellite ground‑network API</span>
+              </div>
+              <h3 class="project-card__title">Aperture — Landing page for a satellite ground‑network API</h3>
+              <p class="project-card__desc">Making invisible infrastructure feel tangible.</p>
+              <div class="project-card__footer">
+                <span class="link-arrow">View case <span class="link-arrow__arrow">→</span></span>
+              </div>
+            </div>
+          </a>
+
+          <a class="project-card" href="case-studies/echoes.html">
+            <div class="project-card__media">
+              <img src="assets/images/project-echoes.jpg" alt="Echoes dream journal mobile app" loading="lazy" />
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span class="project-card__tag">Mobile App</span>
+                <span class="project-card__tag">Immersive glass interface</span>
+              </div>
+              <h3 class="project-card__title">Echoes — Dream journal</h3>
+              <p class="project-card__desc">A mobile dream journal app that helps users capture, reflect on, and find patterns in their dreams.</p>
+              <div class="project-card__footer">
+                <span class="link-arrow">View case <span class="link-arrow__arrow">→</span></span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="projects__grid" data-panel="3d" hidden>
+          <a class="project-card" href="case-studies/follow-the-light.html">
+            <div class="project-card__media">
+              <img src="assets/images/project-follow-the-light.jpg" alt="Follow the Light 3D claw machine promo visual" loading="lazy" />
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span class="project-card__tag">3D</span>
+                <span class="project-card__tag">Crypto</span>
+              </div>
+              <h3 class="project-card__title">Follow the Light</h3>
+              <p class="project-card__desc">Create a 3D promo visual concept for a crypto/NFT product, using a claw machine filled with regular toys as the core metaphor.</p>
+              <div class="project-card__footer">
+                <span class="link-arrow">View case <span class="link-arrow__arrow">→</span></span>
+              </div>
+            </div>
+          </a>
+
+          <a class="project-card" href="case-studies/zombie-hand.html">
+            <div class="project-card__media">
+              <img src="assets/images/project-3d-cinema.jpg" alt="3D modeling for online cinema promo" loading="lazy" />
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span class="project-card__tag">3D</span>
+                <span class="project-card__tag">Cinema</span>
+              </div>
+              <h3 class="project-card__title">3D Modeling for online cinema</h3>
+              <p class="project-card__desc">Create a 3D illustration based on a sketch by the FeelFactory agency for the online cinema Ivi.</p>
+              <div class="project-card__footer">
+                <span class="link-arrow">View case <span class="link-arrow__arrow">→</span></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact section" id="contact">
+      <h2 class="contact__heading">Looking for a product designer?</h2>
+      <p class="contact__subhead">Currently open to new projects. Let's talk about what you're building.</p>
+      <div class="contact__actions">
+        <a class="btn btn--dark" href="https://www.linkedin.com/in/elizabeth-gilyarevskaya-1636913b8/" target="_blank" rel="noopener">Linkedin</a>
+        <a class="btn btn--outline" href="https://www.behance.net/elizaemg" target="_blank" rel="noopener">Behance</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__row">
+      <p class="site-footer__copy">© 2026 Eliza EMG. All rights reserved.</p>
+      <div class="site-footer__links">
+        <a href="https://www.behance.net/elizaemg" target="_blank" rel="noopener">Behance</a>
+        <a href="https://www.linkedin.com/in/elizabeth-gilyarevskaya-1636913b8/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
