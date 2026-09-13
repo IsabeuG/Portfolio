@@ -11,28 +11,40 @@
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/case-study.css" />
 </head>
-<body>
+<body data-page="tessera">
 
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
       <a class="nav__brand" href="../index.html">EGM</a>
-      <a class="nav__link" href="../index.html#approach">Approach</a>
-      <a class="nav__link" href="../index.html#work">Work</a>
-      <a class="nav__link" href="../index.html#contact">Contacts</a>
+      <a class="nav__link" href="../index.html#approach" data-i18n="nav.approach">Approach</a>
+      <a class="nav__link" href="../index.html#work" data-i18n="nav.work">Work</a>
+      <a class="nav__link" href="../index.html#contact" data-i18n="nav.contacts">Contacts</a>
     </nav>
+    <div class="lang-switch">
+      <button type="button" class="lang-switch__button" aria-haspopup="listbox" aria-expanded="false">
+        <span class="lang-switch__label" data-lang-current>ENG</span>
+        <svg class="lang-switch__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+          <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <ul class="lang-switch__menu" role="listbox" hidden>
+        <li role="option" data-lang="en" aria-selected="true">ENG</li>
+        <li role="option" data-lang="ru" aria-selected="false">RU</li>
+      </ul>
+    </div>
   </header>
 
   <main>
     <section class="cs-hero">
-      <a class="cs-back" href="../index.html#work">← Back to work</a>
+      <a class="cs-back" href="../index.html#work" data-i18n="cs.back">← Back to work</a>
       <div class="cs-title-card">
-        <h1>Tessera — Fleet management platform</h1>
-        <p>Tessera clears and settles tokenized assets for banks. Nothing about the product is visible — no app, no dashboard, just an API and a promise. The website had to make that promise legible to three very different readers in one scroll.</p>
+        <h1 data-i18n="hero.title">Tessera — Fleet management platform</h1>
+        <p data-i18n="hero.desc">Tessera clears and settles tokenized assets for banks. Nothing about the product is visible — no app, no dashboard, just an API and a promise. The website had to make that promise legible to three very different readers in one scroll.</p>
         <div class="cs-tags">
-          <span class="pill">UX / UI</span>
-          <span class="pill">FinTech</span>
-          <span class="pill">Crypto</span>
-          <span class="pill">Corporate Website</span>
+          <span class="pill" data-i18n="hero.tag1">UX / UI</span>
+          <span class="pill" data-i18n="hero.tag2">FinTech</span>
+          <span class="pill" data-i18n="hero.tag3">Crypto</span>
+          <span class="pill" data-i18n="hero.tag4">Corporate Website</span>
         </div>
       </div>
     </section>
@@ -44,34 +56,34 @@
     </section>
 
     <section class="cs-about">
-      <p class="cs-eyebrow">About the project</p>
-      <h2>What the product is and what I was solving</h2>
+      <p class="cs-eyebrow" data-i18n="cs.eyebrow.about">About the project</p>
+      <h2 data-i18n="cs.about.heading">What the product is and what I was solving</h2>
       <div class="cs-about__columns">
         <div class="cs-about__context">
           <div class="cs-about__block">
-            <h3>Context</h3>
-            <p>A four-page site built to survive a due-diligence read — an engineer, a risk officer and a compliance lead evaluating the same company from the same scroll, each looking for a different kind of proof.</p>
+            <h3 data-i18n="cs.about.context">Context</h3>
+            <p data-i18n="about.context">A four-page site built to survive a due-diligence read — an engineer, a risk officer and a compliance lead evaluating the same company from the same scroll, each looking for a different kind of proof.</p>
           </div>
           <div class="cs-about__block">
-            <h3>Problem</h3>
-            <p>An invisible product with no UI to show, sold to buyers who arrive skeptical rather than curious. Adjectives do not survive that room.</p>
+            <h3 data-i18n="cs.about.problem">Problem</h3>
+            <p data-i18n="about.problem">An invisible product with no UI to show, sold to buyers who arrive skeptical rather than curious. Adjectives do not survive that room.</p>
           </div>
           <div class="cs-about__block">
-            <h3>My role</h3>
-            <p>I created one narrative arc across four pages, each claim tied to an artifact — a diagram, a code block, a table, a number with a unit.</p>
+            <h3 data-i18n="cs.about.myrole">My role</h3>
+            <p data-i18n="about.myrole">I created one narrative arc across four pages, each claim tied to an artifact — a diagram, a code block, a table, a number with a unit.</p>
           </div>
         </div>
         <dl class="cs-about__facts">
-          <div><dt>Role</dt><dd>Product designer</dd></div>
-          <div><dt>Timeline</dt><dd>3 months, 2025</dd></div>
-          <div><dt>Platform</dt><dd>Web app, desktop-first</dd></div>
-          <div><dt>Tools</dt><dd>Figma, Blender, Spline</dd></div>
+          <div><dt data-i18n="cs.facts.role">Role</dt><dd data-i18n="facts.role">Product designer</dd></div>
+          <div><dt data-i18n="cs.facts.timeline">Timeline</dt><dd data-i18n="facts.timeline">3 weeks, 2026</dd></div>
+          <div><dt data-i18n="cs.facts.platform">Platform</dt><dd data-i18n="facts.platform">Web, mobile, tablet</dd></div>
+          <div><dt data-i18n="cs.facts.tools">Tools</dt><dd data-i18n="facts.tools">Figma</dd></div>
         </dl>
       </div>
     </section>
 
     <section class="cs-visuals">
-      <p class="cs-eyebrow">Selected screens</p>
+      <p class="cs-eyebrow" data-i18n="cs.eyebrow.screens">Selected screens</p>
       <div class="cs-visuals__main">
         <img src="../assets/images/tessera-visual-1.jpg" alt="Tessera dashboard screen — atomic settlement feature" />
       </div>
@@ -84,10 +96,10 @@
     <section class="cs-cta">
       <div class="cs-cta__card">
         <div class="cs-cta__text">
-          <h3>See the full case on Behance</h3>
-          <p>Full process, research and the rest of the screens.</p>
+          <h3 data-i18n="cs.cta.heading">See the full case on Behance</h3>
+          <p data-i18n="cs.cta.text">Full process, research and the rest of the screens.</p>
         </div>
-        <a class="btn btn--white" href="https://www.behance.net/elizaemg" target="_blank" rel="noopener">Open on Behance ↗</a>
+        <a class="btn btn--white" href="https://www.behance.net/elizaemg" target="_blank" rel="noopener"><span data-i18n="cs.cta.button">Open on Behance</span> ↗</a>
       </div>
       <p class="cs-cta__handle">behance.net/elizaemg</p>
     </section>
@@ -96,7 +108,7 @@
   <footer class="cs-footer">
     <div class="cs-footer__divider"></div>
     <div class="cs-footer__row">
-      <span>© 2026 EGM. All rights reserved.</span>
+      <span data-i18n="cs.footer.copyright">© 2026 EGM. All rights reserved.</span>
       <div class="cs-footer__links">
         <a href="https://www.behance.net/elizaemg" target="_blank" rel="noopener">Behance</a>
         <a href="https://www.linkedin.com/in/elizabeth-gilyarevskaya-1636913b8/" target="_blank" rel="noopener">LinkedIn</a>
@@ -106,5 +118,6 @@
   </footer>
 
   <script src="../js/main.js"></script>
+  <script src="../js/i18n.js"></script>
 </body>
 </html>

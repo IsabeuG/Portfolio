@@ -11,15 +11,27 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/home.css" />
 </head>
-<body>
+<body data-page="home">
 
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
       <a class="nav__brand" href="#hero">EGM</a>
-      <a class="nav__link" href="#approach">Approach</a>
-      <a class="nav__link" href="#work">Work</a>
-      <a class="nav__link" href="#contact">Contacts</a>
+      <a class="nav__link" href="#approach" data-i18n="nav.approach">Approach</a>
+      <a class="nav__link" href="#work" data-i18n="nav.work">Work</a>
+      <a class="nav__link" href="#contact" data-i18n="nav.contacts">Contacts</a>
     </nav>
+    <div class="lang-switch">
+      <button type="button" class="lang-switch__button" aria-haspopup="listbox" aria-expanded="false">
+        <span class="lang-switch__label" data-lang-current>ENG</span>
+        <svg class="lang-switch__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+          <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <ul class="lang-switch__menu" role="listbox" hidden>
+        <li role="option" data-lang="en" aria-selected="true">ENG</li>
+        <li role="option" data-lang="ru" aria-selected="false">RU</li>
+      </ul>
+    </div>
   </header>
 
   <main>
@@ -28,16 +40,16 @@
       <div class="hero__grid">
         <div class="hero__card">
           <div class="hero__intro">
-            <p class="hero__greeting">Hi, I'm Elizabeth 🤓 Product and 3D Designer based in Moscow</p>
-            <h1 class="hero__heading">I design calm interfaces for products that are anything but</h1>
+            <p class="hero__greeting" data-i18n="hero.greeting">Hi, I'm Elizabeth 🤓 Product and 3D Designer based in Moscow</p>
+            <h1 class="hero__heading" data-i18n="hero.heading">I design calm interfaces for products that are anything but</h1>
           </div>
           <ul class="hero__tags">
-            <li class="pill">UX / UI</li>
-            <li class="pill">Design systems</li>
-            <li class="pill">B2B</li>
-            <li class="pill">B2С</li>
-            <li class="pill">Data-heavy UI</li>
-            <li class="pill">3D</li>
+            <li class="pill" data-i18n="hero.tag.uxui">UX / UI</li>
+            <li class="pill" data-i18n="hero.tag.designSystems">Design systems</li>
+            <li class="pill" data-i18n="hero.tag.b2b">B2B</li>
+            <li class="pill" data-i18n="hero.tag.b2c">B2C</li>
+            <li class="pill" data-i18n="hero.tag.dataHeavyUi">Data-heavy UI</li>
+            <li class="pill" data-i18n="hero.tag.3d">3D</li>
           </ul>
         </div>
         <div class="hero__aside">
@@ -47,9 +59,9 @@
           <div class="hero__status">
             <span class="hero__status-left">
               <span class="hero__status-dot" aria-hidden="true"></span>
-              <span class="hero__status-text">Available for work</span>
+              <span class="hero__status-text" data-i18n="hero.status">Available for work</span>
             </span>
-            <a class="hero__status-link" href="https://t.me/elizabethemg" target="_blank" rel="noopener">Let's talk</a>
+            <a class="hero__status-link" href="https://t.me/elizabethemg" target="_blank" rel="noopener" data-i18n="hero.statusLink">Let's talk</a>
           </div>
         </div>
       </div>
@@ -58,28 +70,28 @@
     <!-- Approach -->
     <section class="section" id="approach">
       <div class="container">
-        <h2 class="section-heading">Approach</h2>
+        <h2 class="section-heading" data-i18n="approach.heading">Approach</h2>
         <div class="approach__grid">
-          <div class="approach__intro">
+          <div class="approach__intro" data-i18n="approach.intro">
             I aim for balance between classical craft and contemporary design — not chasing trends, but pairing clear, intuitive structure with visuals that pull you in.
           </div>
           <div class="approach__notes">
-            <p>I start with the workflow, not the screens. Understanding how people actually move through a product — the shortcuts they've invented, the steps they skip, the errors they ignore — tells me more than any brief.</p>
-            <p>Systems over one-off screens. Every component I design has to work in at least three states and survive an engineer who's never spoken to me. If it can't be handed off without a Loom video, it isn't finished.</p>
-            <p>Delivery is part of the design. Annotated specs, motion guidance, edge case documentation: these aren't extras, they're the last 30% of the job. The gap between a good design and a good product usually lives in that 30%.</p>
+            <p data-i18n="approach.note1">I start with the workflow, not the screens. Understanding how people actually move through a product — the shortcuts they've invented, the steps they skip, the errors they ignore — tells me more than any brief.</p>
+            <p data-i18n="approach.note2">Systems over one-off screens. Every component I design has to work in at least three states and survive an engineer who's never spoken to me. If it can't be handed off without a Loom video, it isn't finished.</p>
+            <p data-i18n="approach.note3">Delivery is part of the design. Annotated specs, motion guidance, edge case documentation: these aren't extras, they're the last 30% of the job. The gap between a good design and a good product usually lives in that 30%.</p>
           </div>
         </div>
         <div class="approach__skills">
-          <span class="pill pill--accent">Product discovery</span>
-          <span class="pill pill--accent">Complex workflows</span>
-          <span class="pill pill--accent">Design systems</span>
-          <span class="pill pill--accent">Data-heavy UI</span>
-          <span class="pill pill--outline">Prototyping</span>
-          <span class="pill pill--accent">Interaction design</span>
-          <span class="pill pill--outline">User research</span>
-          <span class="pill pill--outline">3D &amp; product visuals</span>
-          <span class="pill pill--accent">Figma</span>
-          <span class="pill pill--outline">Blender</span>
+          <span class="pill pill--accent" data-i18n="approach.skill.productDiscovery">Product discovery</span>
+          <span class="pill pill--accent" data-i18n="approach.skill.complexWorkflows">Complex workflows</span>
+          <span class="pill pill--accent" data-i18n="approach.skill.designSystems">Design systems</span>
+          <span class="pill pill--accent" data-i18n="approach.skill.dataHeavyUi">Data-heavy UI</span>
+          <span class="pill pill--outline" data-i18n="approach.skill.prototyping">Prototyping</span>
+          <span class="pill pill--accent" data-i18n="approach.skill.interactionDesign">Interaction design</span>
+          <span class="pill pill--outline" data-i18n="approach.skill.userResearch">User research</span>
+          <span class="pill pill--outline" data-i18n="approach.skill.3dVisuals">3D &amp; product visuals</span>
+          <span class="pill pill--accent" data-i18n="approach.skill.figma">Figma</span>
+          <span class="pill pill--outline" data-i18n="approach.skill.blender">Blender</span>
         </div>
       </div>
     </section>
@@ -89,13 +101,13 @@
       <div class="container">
         <div class="projects__head">
           <div>
-            <h2 class="section-heading">Featured projects</h2>
-            <p class="section-subhead">Selected cases from the last two years.</p>
+            <h2 class="section-heading" data-i18n="work.heading">Featured projects</h2>
+            <p class="section-subhead" data-i18n="work.subhead">Selected cases from the last two years.</p>
           </div>
         </div>
         <div class="projects__tabs" role="tablist" aria-label="Project category">
-          <button class="projects__tab is-active" type="button" role="tab" aria-selected="true" data-tab="design">Product Design</button>
-          <button class="projects__tab" type="button" role="tab" aria-selected="false" data-tab="3d">3D Art</button>
+          <button class="projects__tab is-active" type="button" role="tab" aria-selected="true" data-tab="design" data-i18n="work.tab.design">Product Design</button>
+          <button class="projects__tab" type="button" role="tab" aria-selected="false" data-tab="3d" data-i18n="work.tab.3d">3D Art</button>
         </div>
 
         <div class="projects__grid" data-panel="design">
@@ -105,14 +117,14 @@
             </div>
             <div class="project-card__body">
               <div class="project-card__tags">
-                <span class="project-card__tag">FinTech</span>
-                <span class="project-card__tag">Crypto</span>
-                <span class="project-card__tag">Corporate Website</span>
+                <span class="project-card__tag" data-i18n="proj.tessera.tag1">FinTech</span>
+                <span class="project-card__tag" data-i18n="proj.tessera.tag2">Crypto</span>
+                <span class="project-card__tag" data-i18n="proj.tessera.tag3">Corporate Website</span>
               </div>
-              <h3 class="project-card__title">Tessera — Fleet management platform</h3>
-              <p class="project-card__desc">An invisible product with no UI to show, sold to buyers who arrive skeptical rather than curious. Adjectives do not survive that room.</p>
+              <h3 class="project-card__title" data-i18n="proj.tessera.title">Tessera — Fleet management platform</h3>
+              <p class="project-card__desc" data-i18n="proj.tessera.desc">An invisible product with no UI to show, sold to buyers who arrive skeptical rather than curious. Adjectives do not survive that room.</p>
               <div class="project-card__footer">
-                <span class="link-arrow">View case <span class="link-arrow__arrow">→</span></span>
+                <span class="link-arrow"><span data-i18n="work.viewCase">View case</span> <span class="link-arrow__arrow">→</span></span>
               </div>
             </div>
           </a>
@@ -124,14 +136,14 @@
             </div>
             <div class="project-card__body">
               <div class="project-card__tags">
-                <span class="project-card__tag">Internal SaaS</span>
-                <span class="project-card__tag">Live game operations</span>
-                <span class="project-card__tag">Web app</span>
+                <span class="project-card__tag" data-i18n="proj.liveops.tag1">Internal SaaS</span>
+                <span class="project-card__tag" data-i18n="proj.liveops.tag2">Live game operations</span>
+                <span class="project-card__tag" data-i18n="proj.liveops.tag3">Web app</span>
               </div>
-              <h3 class="project-card__title">LiveOps — Command center</h3>
-              <p class="project-card__desc">A real-time control room for a live game with millions of players. One dark interface to watch the pulse, balance the economy, and run experiments.</p>
+              <h3 class="project-card__title" data-i18n="proj.liveops.title">LiveOps — Command center</h3>
+              <p class="project-card__desc" data-i18n="proj.liveops.desc">A real-time control room for a live game with millions of players. One dark interface to watch the pulse, balance the economy, and run experiments.</p>
               <div class="project-card__footer">
-                <span class="link-arrow">View case <span class="link-arrow__arrow">→</span></span>
+                <span class="link-arrow"><span data-i18n="work.viewCase">View case</span> <span class="link-arrow__arrow">→</span></span>
               </div>
             </div>
           </a>
@@ -142,13 +154,13 @@
             </div>
             <div class="project-card__body">
               <div class="project-card__tags">
-                <span class="project-card__tag">Landing</span>
-                <span class="project-card__tag">Satellite ground‑network API</span>
+                <span class="project-card__tag" data-i18n="proj.aperture.tag1">Landing</span>
+                <span class="project-card__tag" data-i18n="proj.aperture.tag2">Satellite ground‑network API</span>
               </div>
-              <h3 class="project-card__title">Aperture — Landing page for a satellite ground‑network API</h3>
-              <p class="project-card__desc">Making invisible infrastructure feel tangible.</p>
+              <h3 class="project-card__title" data-i18n="proj.aperture.title">Aperture — Landing page for a satellite ground‑network API</h3>
+              <p class="project-card__desc" data-i18n="proj.aperture.desc">Making invisible infrastructure feel tangible.</p>
               <div class="project-card__footer">
-                <span class="link-arrow">View case <span class="link-arrow__arrow">→</span></span>
+                <span class="link-arrow"><span data-i18n="work.viewCase">View case</span> <span class="link-arrow__arrow">→</span></span>
               </div>
             </div>
           </a>
@@ -159,13 +171,13 @@
             </div>
             <div class="project-card__body">
               <div class="project-card__tags">
-                <span class="project-card__tag">Mobile App</span>
-                <span class="project-card__tag">Immersive glass interface</span>
+                <span class="project-card__tag" data-i18n="proj.echoes.tag1">Mobile App</span>
+                <span class="project-card__tag" data-i18n="proj.echoes.tag2">Immersive glass interface</span>
               </div>
-              <h3 class="project-card__title">Echoes — Dream journal</h3>
-              <p class="project-card__desc">A mobile dream journal app that helps users capture, reflect on, and find patterns in their dreams.</p>
+              <h3 class="project-card__title" data-i18n="proj.echoes.title">Echoes — Dream journal</h3>
+              <p class="project-card__desc" data-i18n="proj.echoes.desc">A mobile dream journal app that helps users capture, reflect on, and find patterns in their dreams.</p>
               <div class="project-card__footer">
-                <span class="link-arrow">View case <span class="link-arrow__arrow">→</span></span>
+                <span class="link-arrow"><span data-i18n="work.viewCase">View case</span> <span class="link-arrow__arrow">→</span></span>
               </div>
             </div>
           </a>
@@ -178,13 +190,13 @@
             </div>
             <div class="project-card__body">
               <div class="project-card__tags">
-                <span class="project-card__tag">3D</span>
-                <span class="project-card__tag">Crypto</span>
+                <span class="project-card__tag" data-i18n="proj.followlight.tag1">3D</span>
+                <span class="project-card__tag" data-i18n="proj.followlight.tag2">Crypto</span>
               </div>
-              <h3 class="project-card__title">Follow the Light</h3>
-              <p class="project-card__desc">Create a 3D promo visual concept for a crypto/NFT product, using a claw machine filled with regular toys as the core metaphor.</p>
+              <h3 class="project-card__title" data-i18n="proj.followlight.title">Follow the Light</h3>
+              <p class="project-card__desc" data-i18n="proj.followlight.desc">Create a 3D promo visual concept for a crypto/NFT product, using a claw machine filled with regular toys as the core metaphor.</p>
               <div class="project-card__footer">
-                <span class="link-arrow">View case <span class="link-arrow__arrow">→</span></span>
+                <span class="link-arrow"><span data-i18n="work.viewCase">View case</span> <span class="link-arrow__arrow">→</span></span>
               </div>
             </div>
           </a>
@@ -195,13 +207,13 @@
             </div>
             <div class="project-card__body">
               <div class="project-card__tags">
-                <span class="project-card__tag">3D</span>
-                <span class="project-card__tag">Cinema</span>
+                <span class="project-card__tag" data-i18n="proj.zombiehand.tag1">3D</span>
+                <span class="project-card__tag" data-i18n="proj.zombiehand.tag2">Cinema</span>
               </div>
-              <h3 class="project-card__title">3D Modeling for online cinema</h3>
-              <p class="project-card__desc">Create a 3D illustration based on a sketch by the FeelFactory agency for the online cinema Ivi.</p>
+              <h3 class="project-card__title" data-i18n="proj.zombiehand.title">3D Modeling for online cinema</h3>
+              <p class="project-card__desc" data-i18n="proj.zombiehand.desc">Create a 3D illustration based on a sketch by the FeelFactory agency for the online cinema Ivi.</p>
               <div class="project-card__footer">
-                <span class="link-arrow">View case <span class="link-arrow__arrow">→</span></span>
+                <span class="link-arrow"><span data-i18n="work.viewCase">View case</span> <span class="link-arrow__arrow">→</span></span>
               </div>
             </div>
           </a>
@@ -211,8 +223,8 @@
 
     <!-- Contact -->
     <section class="contact section" id="contact">
-      <h2 class="contact__heading">Looking for a product designer?</h2>
-      <p class="contact__subhead">Currently open to new projects. Let's talk about what you're building.</p>
+      <h2 class="contact__heading" data-i18n="contact.heading">Looking for a cool designer?</h2>
+      <p class="contact__subhead" data-i18n="contact.subhead">Currently open to new projects. Let's talk about what you're building.</p>
       <div class="contact__actions">
         <a class="btn btn--dark" href="https://www.linkedin.com/in/elizabeth-gilyarevskaya-1636913b8/" target="_blank" rel="noopener">Linkedin</a>
         <a class="btn btn--outline" href="https://www.behance.net/elizaemg" target="_blank" rel="noopener">Behance</a>
@@ -222,7 +234,7 @@
 
   <footer class="site-footer">
     <div class="site-footer__row">
-      <p class="site-footer__copy">© 2026 Eliza EMG. All rights reserved.</p>
+      <p class="site-footer__copy" data-i18n="footer.copyright">© 2026 Eliza EMG. All rights reserved.</p>
       <div class="site-footer__links">
         <a href="https://www.behance.net/elizaemg" target="_blank" rel="noopener">Behance</a>
         <a href="https://www.linkedin.com/in/elizabeth-gilyarevskaya-1636913b8/" target="_blank" rel="noopener">LinkedIn</a>
@@ -233,5 +245,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>
