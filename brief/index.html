@@ -27,6 +27,10 @@
     height:100%;
     overflow:hidden;
   }
+  html.pre-select body{
+    position:fixed;
+    width:100%;
+  }
   body{
     background:var(--bg-soft);
     color:var(--text);
@@ -648,6 +652,11 @@
   }
 
   var formState = { branch: null };
+
+  // iOS Safari игнорирует overflow:hidden при резиновом скролле — блокируем touchmove вручную.
+  document.addEventListener('touchmove', function(e){
+    if (document.documentElement.classList.contains('pre-select')) e.preventDefault();
+  }, { passive:false });
 
   var heroChoice = document.getElementById('heroChoice');
   var briefForm = document.getElementById('briefForm');
