@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="pre-select">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +22,11 @@
 
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
+  html.pre-select,
+  html.pre-select body{
+    height:100%;
+    overflow:hidden;
+  }
   body{
     background:var(--bg-soft);
     color:var(--text);
@@ -37,20 +42,28 @@
   }
 
   /* ---------- Hero / choice screen ---------- */
+  /* Пока формат не выбран — экран ровно 100vh без скролла (требование заказчика) */
   .hero{
-    padding:96px 24px 72px;
+    height:100vh;
+    height:100dvh;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:clamp(24px,5vh,56px);
+    padding:24px 24px;
     text-align:center;
   }
   .hero h1{
-    font-size:40px;
+    font-size:clamp(26px,5vw,40px);
     font-weight:600;
     letter-spacing:-0.02em;
-    margin:0 0 16px;
+    margin:0 0 clamp(8px,1.5vh,16px);
   }
   .hero p{
-    font-size:18px;
+    font-size:clamp(14px,2.2vw,18px);
     color:var(--text-secondary);
-    margin:0 0 56px;
+    margin:0;
     max-width:520px;
     margin-left:auto;
     margin-right:auto;
@@ -61,14 +74,15 @@
     margin:0 auto;
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:20px;
+    gap:clamp(10px,2vh,20px);
+    width:100%;
   }
 
   .choice-card{
     background:var(--bg);
     border:1px solid var(--border);
     border-radius:var(--radius-card);
-    padding:40px 28px;
+    padding:clamp(18px,3.5vh,40px) clamp(18px,3vw,28px);
     text-align:left;
     cursor:pointer;
     box-shadow:var(--shadow-soft);
@@ -91,25 +105,22 @@
     background:var(--accent-soft);
     padding:4px 12px;
     border-radius:20px;
-    margin-bottom:18px;
+    margin-bottom:clamp(8px,1.5vh,18px);
   }
   .choice-card h3{
-    font-size:22px;
+    font-size:clamp(18px,3vw,22px);
     font-weight:600;
-    margin:0 0 10px;
+    margin:0 0 clamp(6px,1vh,10px);
     letter-spacing:-0.01em;
   }
   .choice-card p{
-    font-size:15px;
+    font-size:clamp(13px,2vw,15px);
     color:var(--text-secondary);
     margin:0;
   }
 
   @media (max-width:640px){
     .choice-grid{grid-template-columns:1fr;}
-    .hero{padding:64px 20px 48px;}
-    .hero h1{font-size:30px;}
-    .hero p{font-size:16px;margin-bottom:40px;}
   }
 
   /* ---------- Brief form ---------- */
@@ -615,7 +626,7 @@
 <div id="successScreen">
   <div class="success-icon">✓</div>
   <h2>Спасибо! Бриф отправлен</h2>
-  <p>Я получила ваши ответы и скоро напишу вам, чтобы обсудить проект.</p>
+  <p>Я получила ваши ответы и скоро вернусь к вам с обратной связью.</p>
 </div>
 
 <!--
@@ -653,6 +664,7 @@
     branchTilda.style.display = branch === 'figma_tilda' ? 'block' : 'none';
 
     if (!briefForm.classList.contains('visible')) {
+      document.documentElement.classList.remove('pre-select');
       briefForm.classList.add('visible');
       requestAnimationFrame(function(){
         briefForm.scrollIntoView({ behavior:'smooth', block:'start' });
