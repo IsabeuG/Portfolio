@@ -420,8 +420,8 @@
         "about.problem": "The wallet should feel secure even before the first action. Hence, the light and airy theme, large calm typography, soft shapes, and pastel colours serve as \"colours of trust\" — a language that alleviates anxiety.",
         "about.myrole": "UI/UX: structure, visual language, key screens, and design system.",
         "facts.role": "Product designer",
-        "facts.timeline": "3 weeks, 2026",
-        "facts.platform": "Web, mobile, tablet",
+        "facts.timeline": "2 weeks, 2025",
+        "facts.platform": "Mobile-first",
         "facts.tools": "Figma"
       },
       ru: {
@@ -436,8 +436,8 @@
         "about.problem": "Кошелёк должен внушать доверие ещё до первого действия. Отсюда — светлая, воздушная тема, крупная спокойная типографика, мягкие формы и пастельные цвета как «цвета доверия» — язык, который снижает тревожность.",
         "about.myrole": "UI/UX: структура, визуальный язык, ключевые экраны и дизайн-система.",
         "facts.role": "Продуктовый дизайнер",
-        "facts.timeline": "3 недели, 2026",
-        "facts.platform": "Web, мобильные устройства, планшеты",
+        "facts.timeline": "2 недели, 2025",
+        "facts.platform": "Мобильные устройства",
         "facts.tools": "Figma"
       }
     },
