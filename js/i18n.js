@@ -108,6 +108,7 @@
         "hero.tag.3d": "3D",
         "hero.status": "Available for work",
         "hero.statusLink": "Let's talk",
+        "hero.statusLink.href": "https://www.linkedin.com/in/elizaemg",
 
         "approach.heading": "Approach",
         "approach.intro": "I aim for balance between classical craft and contemporary design — not chasing trends, but pairing clear, intuitive structure with visuals that pull you in.",
@@ -192,6 +193,7 @@
         "hero.tag.3d": "3D",
         "hero.status": "Открыта для работы",
         "hero.statusLink": "Обсудить",
+        "hero.statusLink.href": "https://t.me/elizabethemg",
 
         "approach.heading": "Подход",
         "approach.intro": "Я стремлюсь к балансу между классическим мастерством и современным дизайном — не гонюсь за трендами, а сочетаю понятную, интуитивную структуру с визуалом, который цепляет.",
@@ -597,6 +599,13 @@
       var key = el.getAttribute("data-i18n");
       if (Object.prototype.hasOwnProperty.call(dict, key)) {
         el.innerHTML = dict[key];
+      }
+    });
+
+    document.querySelectorAll("[data-i18n-href]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n-href");
+      if (Object.prototype.hasOwnProperty.call(dict, key)) {
+        el.setAttribute("href", dict[key]);
       }
     });
 
