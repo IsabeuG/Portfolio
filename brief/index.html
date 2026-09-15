@@ -418,8 +418,8 @@
     </div>
     <div class="choice-card" data-branch="figma_tilda" id="cardTilda">
       <span class="tag">Дизайн + разработка</span>
-      <h3>Дизайн + разработка на Tilda</h3>
-      <p>Делаю макет и сразу собираю рабочий сайт на Tilda — под ключ.</p>
+      <h3>Дизайн + разработка на Tilda / Claude Code</h3>
+      <p>Делаю макет и сразу собираю рабочий сайт на Tilda / Claude Code — под ключ.</p>
     </div>
   </div>
 </div>
@@ -776,7 +776,7 @@
     lines.push('Компания/проект: ' + document.getElementById('f_company').value.trim());
     lines.push('Контакт: ' + document.getElementById('f_contact').value.trim());
     lines.push('');
-    lines.push('Формат: ' + (formState.branch === 'figma' ? 'Только дизайн в Figma' : 'Дизайн + разработка на Tilda'));
+    lines.push('Формат: ' + (formState.branch === 'figma' ? 'Только дизайн в Figma' : 'Дизайн + разработка на Tilda / Claude Code'));
     lines.push('');
 
     function add(label, value){
@@ -859,7 +859,7 @@
     var payload = {
       name: document.getElementById('f_name').value.trim(),
       contact: document.getElementById('f_contact').value.trim(),
-      branch: formState.branch === 'figma' ? 'Только дизайн в Figma' : 'Дизайн + разработка на Tilda',
+      branch: formState.branch === 'figma' ? 'Только дизайн в Figma' : 'Дизайн + разработка на Tilda / Claude Code',
       answers: collectAnswers()
     };
 
