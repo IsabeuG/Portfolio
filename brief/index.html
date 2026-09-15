@@ -580,15 +580,22 @@
 
   <div class="section" id="branchTilda" style="display:none;">
     <div class="section-inner">
-      <h2 class="section-title">Про Tilda</h2>
-      <p class="section-subtitle">4 вопроса о запуске и сопровождении сайта.</p>
+      <h2 class="section-title">Разработка</h2>
+      <p class="section-subtitle">5 вопросов о запуске и сопровождении сайта.</p>
 
       <div class="field">
-        <label class="q">Есть ли уже домен и аккаунт/тариф Tilda?</label>
+        <label class="q">Есть ли домен?</label>
         <div class="radio-group">
-          <label class="pill-option"><input type="radio" name="qt11" value="Есть всё"><span>Есть всё</span></label>
-          <label class="pill-option"><input type="radio" name="qt11" value="Есть домен, нужен Tilda"><span>Есть домен, нужен Tilda</span></label>
-          <label class="pill-option"><input type="radio" name="qt11" value="Нет ничего"><span>Нет ничего</span></label>
+          <label class="pill-option"><input type="radio" name="qt11" value="Да"><span>Да</span></label>
+          <label class="pill-option"><input type="radio" name="qt11" value="Нет"><span>Нет</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="q">Есть ли тариф на Tilda (если предпочитаете Tilda, а не Claude Code)?</label>
+        <div class="radio-group">
+          <label class="pill-option"><input type="radio" name="qt11b" value="Да"><span>Да</span></label>
+          <label class="pill-option"><input type="radio" name="qt11b" value="Нет"><span>Нет</span></label>
         </div>
       </div>
 
@@ -608,7 +615,7 @@
       </div>
 
       <div class="field">
-        <label class="q" for="qt14">Нужна ли поддержка сайта после запуска и кто будет вносить правки — вы сами или нужен подрядчик?</label>
+        <label class="q" for="qt14">Нужна ли поддержка сайта после запуска и кто будет вносить правки — вы сами или вы согласны на сопровождение (оплата обсуждается)?</label>
         <textarea id="qt14"></textarea>
       </div>
 
@@ -818,12 +825,14 @@
       add('15. Готовое ТЗ по функциональности', qf15 ? qf15.value : '');
     } else if (formState.branch === 'figma_tilda') {
       var qt11 = document.querySelector('input[name="qt11"]:checked');
-      add('11. Домен и аккаунт Tilda', qt11 ? qt11.value : '');
+      add('11. Есть домен', qt11 ? qt11.value : '');
+      var qt11b = document.querySelector('input[name="qt11b"]:checked');
+      add('12. Есть тариф на Tilda', qt11b ? qt11b.value : '');
       var qt12 = Array.prototype.slice.call(document.querySelectorAll('[data-group="qt12"]:checked')).map(function(c){return c.value;}).join(', ');
       var qt12other = document.getElementById('qt12_other').value.trim();
-      add('12. Нужные интеграции', qt12 + (qt12other ? ', ' + qt12other : ''));
-      add('13. Форма заявки', document.getElementById('qt13').value);
-      add('14. Поддержка после запуска', document.getElementById('qt14').value);
+      add('13. Нужные интеграции', qt12 + (qt12other ? ', ' + qt12other : ''));
+      add('14. Форма заявки', document.getElementById('qt13').value);
+      add('15. Поддержка после запуска', document.getElementById('qt14').value);
     }
 
     return lines.join('\n');
