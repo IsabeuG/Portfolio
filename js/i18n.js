@@ -153,6 +153,16 @@
         "proj.echoes.tag1": "Mobile App",
         "proj.echoes.tag2": "Immersive glass interface",
 
+        "proj.cryptowallet.title": "JIS — Crypto Wallet",
+        "proj.cryptowallet.desc": "Create a crypto wallet that is safe to use: a clear overview of assets, simple exchanges, and a sense of security.",
+        "proj.cryptowallet.tag1": "Crypto",
+        "proj.cryptowallet.tag2": "Mobile app",
+
+        "proj.tranq.title": "Tranq — Web-app for travel planning",
+        "proj.tranq.desc": "To combine all stages of travel planning into one service: selection, itinerary, payment, and monitoring.",
+        "proj.tranq.tag1": "Travel",
+        "proj.tranq.tag2": "Web app",
+
         "proj.followlight.title": "Follow the Light",
         "proj.followlight.desc": "Create a 3D promo visual concept for a crypto/NFT product, using a claw machine filled with regular toys as the core metaphor.",
         "proj.followlight.tag1": "3D",
@@ -226,6 +236,16 @@
         "proj.echoes.desc": "Мобильное приложение — дневник снов, которое помогает записывать сны, осмыслять их и находить повторяющиеся паттерны.",
         "proj.echoes.tag1": "Мобильное приложение",
         "proj.echoes.tag2": "Иммерсивный «стеклянный» интерфейс",
+
+        "proj.cryptowallet.title": "JIS — крипто-кошелёк",
+        "proj.cryptowallet.desc": "Создать крипто-кошелёк, которым приятно и безопасно пользоваться: понятный обзор активов, простой обмен и ощущение защищённости.",
+        "proj.cryptowallet.tag1": "Крипто",
+        "proj.cryptowallet.tag2": "Мобильное приложение",
+
+        "proj.tranq.title": "Tranq — веб-приложение для планирования путешествий",
+        "proj.tranq.desc": "Объединить все этапы планирования путешествия в одном сервисе: выбор, маршрут, оплату и отслеживание.",
+        "proj.tranq.tag1": "Путешествия",
+        "proj.tranq.tag2": "Веб-приложение",
 
         "proj.followlight.title": "Follow the Light",
         "proj.followlight.desc": "Концепция 3D-промо-визуала для крипто/NFT-продукта: в основе — автомат с игрушками, наполненный обычными мягкими зверятами, как ключевая метафора.",
@@ -383,6 +403,76 @@
         "facts.role": "Продуктовый дизайнер",
         "facts.timeline": "7 дней, 2025",
         "facts.platform": "Мобильное приложение",
+        "facts.tools": "Figma"
+      }
+    },
+
+    cryptowallet: {
+      en: {
+        "meta.title": "JIS — Crypto Wallet | Eliza EGM",
+        "meta.description": "Create a crypto wallet that is safe to use: a clear overview of assets, simple exchanges, and a sense of security.",
+        "hero.title": "JIS — Crypto Wallet",
+        "hero.desc": "Create a crypto wallet that is safe to use: a clear overview of assets, simple exchanges, and a sense of security.",
+        "hero.tag1": "UX / UI",
+        "hero.tag2": "Crypto",
+        "hero.tag3": "Mobile app",
+        "about.context": "Create a crypto wallet that is safe to use: a clear overview of assets, simple exchanges, and a sense of security.",
+        "about.problem": "The wallet should feel secure even before the first action. Hence, the light and airy theme, large calm typography, soft shapes, and pastel colours serve as \"colours of trust\" — a language that alleviates anxiety.",
+        "about.myrole": "UI/UX: structure, visual language, key screens, and design system.",
+        "facts.role": "Product designer",
+        "facts.timeline": "3 weeks, 2026",
+        "facts.platform": "Web, mobile, tablet",
+        "facts.tools": "Figma"
+      },
+      ru: {
+        "meta.title": "JIS — крипто-кошелёк | Eliza EGM",
+        "meta.description": "Крипто-кошелёк, которым безопасно и приятно пользоваться: понятный обзор активов, простой обмен и ощущение защищённости.",
+        "hero.title": "JIS — крипто-кошелёк",
+        "hero.desc": "Создать крипто-кошелёк, которым приятно и безопасно пользоваться: понятный обзор активов, простой обмен и ощущение защищённости.",
+        "hero.tag1": "UX / UI",
+        "hero.tag2": "Крипто",
+        "hero.tag3": "Мобильное приложение",
+        "about.context": "Создать крипто-кошелёк, которым приятно и безопасно пользоваться: понятный обзор активов, простой обмен и ощущение защищённости.",
+        "about.problem": "Кошелёк должен внушать доверие ещё до первого действия. Отсюда — светлая, воздушная тема, крупная спокойная типографика, мягкие формы и пастельные цвета как «цвета доверия» — язык, который снижает тревожность.",
+        "about.myrole": "UI/UX: структура, визуальный язык, ключевые экраны и дизайн-система.",
+        "facts.role": "Продуктовый дизайнер",
+        "facts.timeline": "3 недели, 2026",
+        "facts.platform": "Web, мобильные устройства, планшеты",
+        "facts.tools": "Figma"
+      }
+    },
+
+    tranq: {
+      en: {
+        "meta.title": "Tranq — Web-app for travel planning | Eliza EGM",
+        "meta.description": "To combine all stages of travel planning into one service: selection, itinerary, payment, and monitoring.",
+        "hero.title": "Tranq — Web-app for travel planning",
+        "hero.desc": "To combine all stages of travel planning into one service: selection, itinerary, payment, and monitoring. Focus on making users feel safe and as comfortable as possible, never overstimulated.",
+        "hero.tag1": "UX / UI",
+        "hero.tag2": "Travel",
+        "hero.tag3": "Web app",
+        "about.context": "To combine all stages of travel planning into one service: selection, itinerary, payment, and monitoring.",
+        "about.problem": "Had to make sure to focus on making users feel safe and as comfortable as possible, never overstimulated, since planning is rather stressful activity, and tickets, accommodation, and entertainment are all across different services.",
+        "about.myrole": "I managed the project through two branches. In UX, I analysed scenarios, conducted and processed interviews, gathered user flows and prototypes; in UI, I developed search, plan selection, and daily schedules. Both areas converge in a unified service flow.",
+        "facts.role": "Product designer",
+        "facts.timeline": "3 weeks, 2026",
+        "facts.platform": "Web app, desktop-first",
+        "facts.tools": "Figma"
+      },
+      ru: {
+        "meta.title": "Tranq — веб-приложение для планирования путешествий | Eliza EGM",
+        "meta.description": "Объединить все этапы планирования путешествия в одном сервисе: выбор, маршрут, оплату и отслеживание.",
+        "hero.title": "Tranq — веб-приложение для планирования путешествий",
+        "hero.desc": "Объединить все этапы планирования путешествия в одном сервисе: выбор, маршрут, оплату и отслеживание. Главная задача — чтобы пользователь чувствовал себя в безопасности и максимально комфортно, без перегрузки впечатлениями.",
+        "hero.tag1": "UX / UI",
+        "hero.tag2": "Путешествия",
+        "hero.tag3": "Веб-приложение",
+        "about.context": "Объединить все этапы планирования путешествия в одном сервисе: выбор, маршрут, оплату и отслеживание.",
+        "about.problem": "Нужно было сделать так, чтобы пользователь чувствовал себя в безопасности и максимально комфортно, без перегрузки — ведь планирование само по себе довольно стрессовое занятие, а билеты, проживание и развлечения разбросаны по разным сервисам.",
+        "about.myrole": "Я вела проект по двум направлениям. В UX — анализировала сценарии, проводила и обрабатывала интервью, собирала пользовательские сценарии и прототипы; в UI — прорабатывала поиск, выбор плана и расписание на день. Оба направления сходятся в едином сценарии сервиса.",
+        "facts.role": "Продуктовый дизайнер",
+        "facts.timeline": "3 недели, 2026",
+        "facts.platform": "Веб-приложение, desktop-first",
         "facts.tools": "Figma"
       }
     },
